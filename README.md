@@ -1,23 +1,32 @@
-**THIS PACKAGE IS NO LONGER MAINTAINED. LOOKING FOR A NEW MAINTAINER.**
-
 # openapi2schema
-Convert OpenAPI 3.0 document into a tree of request/response JSON Schemas. This builds on [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema) to enable request/response validation.
+Convert OpenAPI 3.0 document into a tree of request/response JSON Schemas. This builds on [openapi-schema-to-json-schema](https://github.com/openapi-contrib/openapi-schema-to-json-schema) to enable request/response validation.
 
 You can use it as a CLI tool or a library. Create your own CLI around the library if the standard one doesn't suit your needs.
 
-## Installation
+## Getting Started
 
-For library
+Follow below instructions to set up the project locally.
 
-```
-npm install --save openapi2schema
-```
+### Prerequisites
 
-For CLI
+* Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager.
 
-```
-npm install -g openapi2schema
-```
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/Abdiiir/openapi2schema
+   ```
+2. Navigate to project directory
+
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Run project to see options
+   ```sh
+   node .\index.js
+   ```
 
 ## Example
 
@@ -73,7 +82,7 @@ Let's use the CLI tool on that:
 
 ```bash
 
-$ openapi2schema -i spec.yaml -p
+$ node .\index.js -i spec.yaml -p
 {
   "/data": {
     "post": {
@@ -122,9 +131,9 @@ The created JSON consists of the defined paths, in this case only `/data`, on th
 The CLI tool will print the created JSON to stdout.
 
 ```bash
-$ openapi2schema -h
+$ node .\index.js
 
-  Usage: openapi2schema [options]
+  Usage: index [options]
 
 
   Options:
@@ -146,10 +155,10 @@ Let's walk through the options:
   * use with `--no-responses` flag to clean empty `get` methods from the result (or the whole path if it contains only an empty `get` method
 * `-d`
   * if you have types with `format: date`, change these to `format: date-time`
-  * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info
+  * this parameter goes directly to [openapi-schema-to-json-schema](https://github.com/openapi-contrib/openapi-schema-to-json-schema), so check out its documentation for more info
 * `--pattern-properties`
   * Setting this option changes `x-patternProperties` to `patternProperties` to enable validation against a pattern. If you have `additionalProperties` set as well in the same schema, this might do a bit of juggling on that. Scroll down for an example.
-  * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info
+  * this parameter goes directly to [openapi-schema-to-json-schema](https://github.com/openapi-contrib/openapi-schema-to-json-schema), so check out its documentation for more info
 * `--no-responses`: include only requests in the created JSON
 
 ### Library
@@ -191,10 +200,10 @@ This prints out the same structure as in the main CLI example, but as an object 
     * cleans the output from empty methods/endpoints
   * `dateToDateTime` (boolean, default: `false`)
     * if you have types with `format: date`, change these to `format: date-time`
-    * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info
+    * this parameter goes directly to [openapi-schema-to-json-schema](https://github.com/openapi-contrib/openapi-schema-to-json-schema), so check out its documentation for more info
   * `supportPatternProperties`:
     * enable regex pattern based properties with `x-patternProperties`
-    * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info
+    * this parameter goes directly to [openapi-schema-to-json-schema](https://github.com/openapi-contrib/openapi-schema-to-json-schema), so check out its documentation for more info
   * `async` (boolean, default: `true`)
     * controls if function called sync with return value or async with callback
 * `callback` (required at default, not required if async is false)
@@ -264,3 +273,7 @@ Here we set `x-patternProperties` in the schema, but we also set `additionalProp
 Notice also that `additionalProperties` is set to `false`. This is because if we allow additional string properties in the spec file, we would allow any property of type string. By setting it to `false`, we restrict additional properties to those defined by the pattern.
 
 If `additionalProperties` is an object, it will be converted to `false` if the `additionalProperties` object is deeply equal to one of the pattern objects in `patternProperties`.
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
