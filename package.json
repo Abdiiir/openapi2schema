@@ -18,7 +18,7 @@
     "json-schema-ref-parser": "^4.0.3",
     "json-schema-deref-sync": "^0.4.0",
     "js-yaml": "^3.10.0",
-    "openapi-schema-to-json-schema": "^2.1.0"
+    "@openapi-contrib/openapi-schema-to-json-schema": "^3.0.4"
   },
   "devDependencies": {
     "tap-spec": "^4.1.1",
