@@ -13,15 +13,15 @@
   "author": "Mika Kunnas",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.11.0",
-    "json-schema-merge-allof": "^0.6.0",
-    "json-schema-ref-parser": "^4.0.3",
+    "@openapi-contrib/openapi-schema-to-json-schema": "^3.1.2",
+    "commander": "^2.20.3",
+    "js-yaml": "^3.14.1",
     "json-schema-deref-sync": "^0.4.0",
-    "js-yaml": "^3.10.0",
-    "openapi-schema-to-json-schema": "^2.1.0"
+    "json-schema-merge-allof": "^0.6.0",
+    "json-schema-ref-parser": "^4.1.1"
   },
   "devDependencies": {
-    "tap-spec": "^4.1.1",
-    "tape": "^4.8.0"
+    "tap-spec": "^4.1.2",
+    "tape": "^4.15.1"
   }
 }
